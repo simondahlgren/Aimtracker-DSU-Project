@@ -1,0 +1,211 @@
+﻿@using DSUgrupp2.ViewModels
+@using System.Web
+
+@model ShootingSessionViewModel
+
+<html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<body>
+    <div class="homebtn">
+        <a class="nav-link" href="#" onclick="javascript:window.history.back();">
+            <span style="font-size: 70px;" class="material-icons">
+                reply
+            </span>
+        </a>
+    </div>
+    <div class="row1">
+         <div class="header-workouts">
+        <h2>Summary shooting session</h2>
+       
+      
+    </div> 
+    <div class="ResultInformationContaioner">
+        <h2>Date: @Model.ShootingSession.Date.ToShortDateString()</h2>
+        <h2>Condition: @Model.ShootingSession.Condition</h2>
+        <h2>Temperature: @Model.ShootingSession.Temperature ℃</h2>
+        <h2>Windforce: @Model.ShootingSession.WindForce m/s</h2>
+    </div>
+    <div class="ResultContainer">
+        <div class="ShootingResults">
+            <h2>Standing</h2>
+            <h2>Whole Circle</h2>
+            <h3>11.5 cm</h3>
+            <div class="ChartStyle">
+                <canvas id="StandingChart" class="ChartGraph">
+                </canvas>
+            </div>
+        </div>
+        <div class="ShootingResults">
+            <h2>Prone</h2>
+            <h2>Inner Circle</h2>
+            <h3>4.5 cm</h3>
+            <div class="ChartStyle">
+                <canvas id="ProneChart" class="ChartGraph">
+                </canvas>
+            </div>
+        </div>
+    </div>
+
+ <div class=statDiv>
+    <table>         
+                     <tr class="shotTableHeader">
+                         <th>Stance</th>
+                         <th>Average Time to fire</th>
+                         <th>Average Pulse  </th>
+                         <th>Total Shots</th>
+                         <th>Total Hits </th>
+                         <th>Total Miss </th>
+                         
+                         
+                     </tr>
+                     </table>
+                     <table>
+                        @foreach(var item in Model.ShootingSession.Results)
+                        {
+                        
+                        <tr>
+                        <button type="button" class="collapsible">
+                            <div class="ShotButton">
+                            <p>#@Model.GetStanceNumber(Model.ShootingSession, item) @item.stance</p>
+                             <p>@Model.TimeToFireAverage(item)</p>
+                             <p>@Model.AverageHeartRate(item)</p>
+                             <p>@item.Shots.Count.ToString()</p>
+                             <p>@Model.NumberOfHits(item)</p>
+                             <p>@Model.NumberOfMiss(item)</p>
+                        </div>
+                        </button>
+
+                            <div class="content">
+                            
+        
+                                    
+                                    @foreach (var shot in item.Shots)
+                                    {
+                                            <div class ="singleShot"> 
+                                            <h4>Shot#: @Model.GetShotNumber(item, shot)</h4>
+                                            <p>TimeToFire: @Math.Round(@shot.TimeToFire, 3) S</p>
+                                            <p>HeartRate: @shot.HeartRate Bpm</p>
+                                            <p>Result: @shot.Result.ToUpper()</p>
+                                            </div>
+            
+                                    }
+        
+                                
+                               
+                            </div>
+
+                        </tr>
+                       
+                        }
+                     </table>
+                     
+
+                    
+        </div>
+
+</div>
+
+
+
+
+<script>
+        let pronehitlist = [];
+        let pronemisslist = [];
+
+        let standinghitlist = [];
+        let standingmisslist = [];
+        
+        @foreach(var item in Model.ShootingSession.Results)
+        {
+            @if (item.stance=="Prone")
+                {
+                    @foreach(var shot in item.Shots)
+                    {
+                
+                        @if (shot.Result=="hit")
+                        {
+                            @:pronehitlist.push({x:@shot.FiringCoords.x.ToString().Replace(',', '.'), y:@shot.FiringCoords.y.ToString().Replace(',', '.')});                    
+                        }
+                        else if(shot.Result=="miss")
+                        {
+                            @:pronemisslist.push({x:@shot.FiringCoords.x.ToString().Replace(',', '.'), y:@shot.FiringCoords.y.ToString().Replace(',', '.')});                    
+                        }
+                    }                    
+                }
+                @if (item.stance=="Standing")
+                {
+                    @foreach(var shot in item.Shots)
+                    {
+                
+                        @if (shot.Result=="hit")
+                        {
+                            @:standinghitlist.push({x:@shot.FiringCoords.x.ToString().Replace(',', '.'), y:@shot.FiringCoords.y.ToString().Replace(',', '.')});                    
+                        }
+                        else if(shot.Result=="miss")
+                        {
+                            @:standingmisslist.push({x:@shot.FiringCoords.x.ToString().Replace(',', '.'), y:@shot.FiringCoords.y.ToString().Replace(',', '.')});                    
+                        }
+                    }                    
+                }
+        }
+        standinghitlist.push({x:0, y:0}); // Last x and y in array didnt show up in chart, works when you do this, dont have time to fix properly.
+        standingmisslist.push({x:0, y:0});
+        pronehitlist.push({x:0, y:0});
+        pronemisslist.push({x:0, y:0});
+        CreateChart(standinghitlist, standingmisslist, StandingChart);
+        CreateChart(pronehitlist, pronemisslist, ProneChart);
+        chart.update();
+        
+var coll = document.getElementsByClassName("collapsible");
+                    var i;
+                    
+                    for (i = 0; i < coll.length; i++) {
+                      coll[i].addEventListener("click", function() {
+                        this.classList.toggle("active");
+                        var content = this.nextElementSibling;
+                        if (content.style.display === "block") {
+                          content.style.display = "none";
+                        } else {
+                          content.style.display = "block";
+                        }
+                      });
+                    }
+
+function CreateChart(hitdata, missdata, canvas){
+    chart = new Chart(canvas, {
+        type: "scatter",
+        data: {
+        datasets: [{
+            fill: false,
+            lineTension: 0,
+            backgroundColor: "rgba(60, 179, 113)",
+            borderColor: "rgba(90, 90, 90)",
+            data: hitdata},
+            {fill: false,
+            lineTension: 0,
+            backgroundColor: "rgba(255, 0 ,0)",
+            borderColor: "rgba(90, 90, 90)",
+            data: missdata}
+        ]
+        },
+    options: {
+    maintainAspectRatio: false,
+    legend: {display: false},
+    scales: {
+        yAxes: [{ticks: {min: -200, max:200}}],
+        xAxes: [{ticks: {min: -200, max:200}}],
+    }
+    }
+})
+chart.data.datasets.forEach(dataset => {
+        dataset.data.pop();
+      });
+      
+
+}
+
+</script>
+
+
+</body>
+</html>

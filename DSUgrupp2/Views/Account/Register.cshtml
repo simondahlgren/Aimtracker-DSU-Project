@@ -1,0 +1,61 @@
+﻿@model RegisterViewModel
+
+<div class="row">
+    
+        <div class="header-workouts">
+        <h2>REGISTER</h2>
+     </div>
+        <form method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+
+                <label asp-for="Firstname"></label>
+                <input asp-for="Firstname" class="form-control"/>
+                <span asp-validation-for="Firstname" class="text-danger"></span>
+             </div>
+             <div class="form-group">
+
+                <label asp-for="Lastname"></label>
+                <input asp-for="Lastname" class="form-control"/>
+                <span asp-validation-for="Lastname" class="text-danger"></span>
+             </div>
+            <div class="form-group">
+
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control"/>
+                <span asp-validation-for="Email" class="text-danger"></span>
+             </div>
+
+             <div class="form-group">
+                <label asp-for="Password"></label>
+                <input asp-for="Password" class="form-control"/>
+                <span asp-validation-for="Password" class="text-danger"></span>
+             </div>
+
+             <div class="form-group">
+                <label asp-for="ConfirmPassword"></label>
+                <input asp-for="ConfirmPassword" class="form-control"/>
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+             </div>
+
+             @*<div class="form-group">
+                <label asp-for="Role"></label>
+                <input type="checkbox" asp-for="Role" class="form-control"/>
+                <span asp-validation-for="Role" class="text-danger"></span>
+             </div>*@
+             <div>
+              <input asp-for="Trainer" value="True" type="checkbox" id="trainer" 
+                     >
+              <label for="test">Trainer</label>
+            </div>
+            <div>
+              <input asp-for="Athlete" value="True" type="checkbox" id="athelete" 
+                     >
+              <label for="test">Athlete</label>
+            </div>
+            <div class="registerbtn">
+             <button type="submit" class="btn-save">Register</button>
+             <button type="submit" class="btn-cancel" asp-area="" asp-controller="Account" asp-action="login" >Cancel</button></div>
+        </form>
+    
+</div>

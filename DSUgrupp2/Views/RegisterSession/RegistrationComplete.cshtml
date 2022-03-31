@@ -1,0 +1,17 @@
+﻿@using DSUgrupp2.ViewModels
+@model SessionViewModel
+<div class="RegistrationComplete">
+<h1>Registration of session Complete</h1>
+
+<h2>Athlete : @Model.Athlete.FullName </h2>
+
+<h3>SessionID : <a asp-controller="Statistic" asp-action="ShootingSession" asp-route-id="@Model.ShootingSession.Id">@Model.ShootingSession.Id</a></h3>
+
+<h3>Date : @Model.DateAndTime</h3>
+
+<h3>Location : @Model.Location</h3>
+   
+
+<a asp-controller="Statistic" asp-action="ShootingSession" asp-route-id="@Model.ShootingSession.Id" id="okbtn">Ok! Show me my session!</a>
+
+</div>

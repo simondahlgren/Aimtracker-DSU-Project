@@ -1,0 +1,856 @@
+/*#region Body & Html */
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+/* Optional: Makes the sample page fill the window. */
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+body {
+    margin-bottom: 60px;
+    background-image: url(https://images.unsplash.com/photo-1597773150796-e5c14ebecbf5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+/*#endregion */
+
+/*#region Header */
+
+header {
+    background-color: #0972BB;
+    height: 180px;
+}
+.logo {
+    height: 160px;
+    width: auto;
+    margin-left: 55px;
+    margin-bottom: 20px;
+}
+.header-workouts {
+    display: flex;
+    background-color: #0972BB;
+    color: white;
+    max-width: 100%;
+    max-height: 10%;
+    padding: 30px;
+    justify-content: center;
+    border-radius: 3% 3% 0% 0%;
+}
+/*#endregion */
+
+/*#region Footer */
+footer {
+    margin-top: 150px;
+}
+
+/*#endregion */
+
+/*#region Buttons*/
+.btn-primary {
+    height: 60px;
+    width: 250px;
+    background-color: #0972BB;
+    margin: 20px 0px 20px 20px;
+    font-size: 18px;
+}
+
+.btn-save {
+    height: 60px;
+    width: 180px;
+    background-color: #0972BB;
+    margin: 20px 0px 20px 20px;
+    font-size: 18px;
+    color: white;
+    flex-direction: row;
+}
+
+.btn-cancel {
+    height: 60px;
+    width: 180px;
+    background-color: #c20000;
+    margin: 20px 0px 20px 20px;
+    font-size: 18px;
+    color: white;
+}
+
+.signup {
+    font-size: 15px;
+    color: black;
+    margin-top: 50px;
+}
+
+.loginbtn {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+}
+
+.registerbtn {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    justify-content: center;
+}
+#btnselect {
+    margin: 10px 0px 0px 5px;
+    width: 15%;
+    height: 15%;
+    background-color: #3e8e41;
+    color: white;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 2px;
+}
+
+#btnselectFilter {
+    margin: 10px 0px 0px 5px;
+    width: 15%;
+    height: 15%;
+    background-color: #3e8e41;
+    color: white;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 2px;
+    justify-content: right;
+}
+
+.logout:visited {
+    color: white;
+}
+#okbtn {
+    background-color: blue;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5%;
+}
+.ShotButton {
+    display: flex;
+    justify-content: space-between;
+}
+.collapsible {
+    background-color: #0972BB;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+
+    .active, .collapsible:hover {
+        background-color: white;
+        color: #0972bb;
+        border-style: solid;
+        border-color: #0972bb;
+    }
+/* Dropdown Button */
+.dropbtn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    min-width: 250px;
+    margin: 20px 0px 0px 20px;
+    box-shadow: 5px 5px 5px #9d9d9d;
+    border-radius: 3px;
+}
+
+    .dropbtn:hover {
+        background-color: #3e8e41;
+    }
+.homebtn {
+    background-color: #eacb10;
+    border-radius: 100%;
+    height: 95px;
+    width: 95px;
+    box-shadow: 10px 10px 8px black;
+    margin: 30px, auto, auto, 0px;
+}
+/*#endregion */
+
+/*#region Background */
+.row {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 50%;
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 3%;
+    justify-content: center;
+}
+.row1 {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 80%;
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 3%;
+    justify-content: center;
+}
+.row2 {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 100%;
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 3%;
+    justify-content: center;
+    
+}
+.row3 {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 100%;
+    height: auto;
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 3%;
+    justify-content: center;
+}
+/*#endregion */
+
+/*#region Dropdown */
+/*Menu for select athlete in statistics*/
+.athleteSelection {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    justify-items: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 900;
+}
+
+    .athleteSelection img {
+        height: 50%;
+        width: 50%;
+    }
+
+.athleteMeny {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.athleteInfo {
+    flex-direction: row;
+}
+
+    .athleteInfo p {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-weight: 900;
+    }
+
+
+
+    .athleteInfo img {
+        height: 100px;
+        width: auto;
+    }
+
+.selectathlete {
+    padding: 20px;
+    flex-direction: column; /* row or colum */
+    text-align: center;
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+}
+
+
+.biathletesInformation {
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+    font-size: 24px;
+    text-align: center;
+}
+
+    .biathletesInformation img {
+        max-width: 400px;
+        max-height: 500px;
+        margin: auto;
+        justify-content: center;
+    }
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: 20px;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 250px;
+    max-height: 500px;
+    font-size: 15px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    overflow: scroll;
+    margin-left: 20px;
+    text-align: center;
+    max-width: 300px;
+}
+
+    /* Links inside the dropdown */
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+        /* Change color of dropdown links on hover */
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+/*#endregion */
+
+/*#region Lists */
+.list-workouts {
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    margin: 10px 0px 0px 10px;
+    width: auto;
+}
+
+    .list-workouts a {
+        display: flex;
+        flex-direction: row;
+        text-decoration: none;
+        justify-content: space-between;
+        color: black;
+    }
+
+    .list-workouts p {
+        margin: 10px;
+    }
+.StatList {
+    color: black;
+    background-color: white;
+    width: 200px;
+    padding: 10px;
+    margin: 5px;
+    height: 70px;
+    border-radius: 2%;
+    text-align: center;
+    list-style-type: none;
+}
+/*#endregion */
+
+/*#region Links */
+.regnewpass, .statistic {
+    background-color: #0972BB;
+    border-radius: 90%;
+    height: 200px;
+    width: 200px;
+    margin: 10px;
+    justify-content: space-around;
+    text-align: center;
+    box-shadow: 10px 10px 8px black;
+}
+.calender, .latestpass {
+    background-color: #736c6c;
+    border-radius: 90%;
+    height: 200px;
+    width: 200px;
+    margin: 10px;
+    justify-content: space-around;
+    text-align: center;
+    box-shadow: 10px 10px 8px black;
+}
+/*#endregion */
+
+/*#region Charts */
+.ChartStyle {
+    justify-content: center;
+    height: 400px;
+    width: 400px;
+}
+.ChartGraph {
+    background-color: white;
+    /*background-image: url("https://staffansvapen.se/images/normal/can24640-large.jpg");*/
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBHUcSx_9K8gtAlq5ly3J-PkojZIVjlpCAqQ&usqp=CAU");
+    background-repeat: no-repeat;
+    background-position-x: 57%;
+    background-position-y: 43%;
+    background-size: 61%;
+}
+/*#endregion */
+
+/*#region Calendar */
+/*Calendar*/
+.month {
+    padding: 70px 25px;
+    width: 100%;
+    background: #ffb500;
+    text-align: center;
+}
+
+    .month ul {
+        margin: 0;
+        padding: 0;
+    }
+
+        .month ul li {
+            color: white;
+            font-size: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-decoration: none;
+            list-style: none;
+        }
+
+    .month .prev {
+        float: left;
+        padding-top: 10px;
+    }
+
+    .month .next {
+        float: right;
+        padding-top: 10px;
+    }
+
+.weekdays {
+    margin: 0;
+    padding: 10px 0;
+    background-color: #ddd;
+}
+
+    .weekdays li {
+        display: inline-block;
+        width: 13.6%;
+        color: #666;
+        text-align: center;
+    }
+
+.days {
+    padding: 10px 0;
+    background: #eee;
+    margin: 0;
+}
+
+    .days li {
+        list-style-type: none;
+        display: inline-block;
+        width: 13.6%;
+        text-align: center;
+        margin-bottom: 5px;
+        font-size: 12px;
+        color: #777;
+    }
+
+        .days li .active {
+            padding: 5px;
+            background: #1abc9c;
+            color: white !important
+        }
+
+.calendar {
+    padding: 30px;
+}
+
+/*#endregion */
+
+/*#region Tables */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+th {
+    background-color: #33435a;
+    color: white;
+}
+
+tr:hover {
+    background-color: yellow;
+}
+.shotTableHeader {
+    display: flex;
+    justify-content: space-between;
+    background-color: #0972bb;
+    color: white;
+}
+
+    .shotTableHeader th {
+        background-color: #0972bb;
+        color: white;
+    }
+/*#endregion */
+
+/*#region Maps */
+#map {
+    max-height: 100%;
+}
+#map #infowindow-content {
+    display: inline;
+}
+#map {
+    height: 250px;
+    width: 250px;
+}
+/*#endregion */
+
+/*#region Div */
+.pagename {
+    display: flex;
+    background-color: #0972BB;
+    color: white;
+    max-width: 100%;
+    max-height: 10%;
+    padding: 30px;
+    justify-content: center;
+    border-radius: 3% 3% 0% 0%;
+}
+.startmenu {
+    display: flex;
+    margin: auto;
+    margin-top: 80px;
+    max-width: 500px;
+    flex-wrap: wrap;
+}
+.infodiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10%;
+}
+
+.statisticdiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 10%;
+}
+
+.healthnotesdiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 10%;
+}
+
+.shootingstat, .windstat, pulsestat {
+    margin: 10px;
+}
+.statDiv {
+    display: flex;
+    flex-direction: column;
+    color: black;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+
+.statSummary {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: white;
+    height: 100%;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    border-radius: 2%;
+}
+
+    .statSummary BiatlonImg {
+        max-height: 100px;
+        max-width: 100px;
+    }
+
+    .statSummary ProneDiv {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .statSummary StandingDiv {
+        display: flex;
+        flex-direction: column;
+    }
+
+.SummaryHeaderDiv {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.contain-statistic {
+    display: flex;
+    flex-direction: row !important;
+    justify-content: center;
+    margin: 40px 0px 60px 0px;
+}
+
+.ProneDiv, .StandingDiv {
+    padding: 20px;
+}
+.ShootingResults {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    text-align: center;
+    margin: 5%;
+}
+.workout {
+    padding: 20px;
+}
+.summaryH1 {
+    text-align: center;
+    margin-top: 10px;
+}
+.ShootingResults h1 {
+    color: black;
+}
+
+.ShootingResults h2 {
+    color: black;
+}
+
+.ShootingResults h3 {
+    color: black;
+}
+.email, .logout {
+    padding: 10px;
+}
+.RegistrationComplete {
+    text-align: center;
+    color: white;
+    justify-content: center;
+}
+.popupDiv {
+    display: none;
+    width: 100%;
+    height: 500px;
+    border-style: double;
+    border-radius: 2px;
+}
+.content {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+}
+
+.singleShot {
+    display: flex;
+    justify-content: space-between;
+}
+.ResultInformationContaioner {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    text-align: center;
+}
+/*#endregion */
+
+/*#region Nav */
+.nav-link {
+    margin-top: 30px;
+    text-decoration: none !important;
+    color: white;
+}
+
+.nav-item {
+    list-style-type: none;
+}
+
+.nav-item1 {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    margin: 0px 30px 30px 0px;
+    font-size: 18px;
+    color: white;
+    width: auto;
+    justify-content: space-between;
+}
+
+/*#endregion */
+
+/*#region Icons */
+.material-icons {
+    color: white;
+    font-size: 50px;
+    margin: auto;
+}
+/*#endregion */
+
+/*#region Container */
+.container-latestpass {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin-left: 300px;
+    margin-right: 300px;
+    width: 60%;
+    border-radius: 3%;
+}
+
+.ResultContainer {
+    display: flex;
+    justify-content: center;
+}
+
+    .ResultContainer h1 {
+        color: white;
+    }
+/*#endregion */
+
+/*#region Form */
+.form1 {
+    padding: 3%;
+}
+/*#endregion */
+
+/*#region Pac */
+.pac-card {
+    background-color: #fff;
+    border: 0;
+    border-radius: 2px;
+    box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
+    margin: 10px;
+    padding: 0 0.5em;
+    font: 400 18px Roboto, Arial, sans-serif;
+    overflow: hidden;
+    font-family: Roboto;
+    padding: 0;
+}
+
+#pac-container {
+    padding-bottom: 12px;
+    margin-right: 12px;
+}
+
+.pac-controls {
+    display: inline-block;
+    padding: 5px 11px;
+}
+
+    .pac-controls label {
+        font-family: Roboto;
+        font-size: 13px;
+        font-weight: 300;
+    }
+
+#pac-input {
+    background-color: #fff;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    margin-left: 12px;
+    padding: 0 11px 0 13px;
+    text-overflow: ellipsis;
+    width: 220px;
+    height: 35px;
+    margin-top: 15px;
+}
+
+    #pac-input:focus {
+        border-color: #4d90fe;
+    }
+/*#endregion */
+
+#description {
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+#infowindow-content .title {
+    font-weight: bold;
+}
+
+#infowindow-content {
+    display: none;
+}
+
+
+#title {
+    color: #fff;
+    background-color: #4d90fe;
+    font-size: 25px;
+    font-weight: 500;
+    padding: 6px 12px;
+}
+
+#target {
+    width: 345px;
+}
+
+    .biathletesInformation img {
+        max-width: 400px;
+        max-height: 500px;
+        margin: auto;
+        justify-content: center;
+            }
+
+
+
+
+
+
+.popupDiv {
+    display: none; 
+    border-style: double;
+    border-radius: 2px;
+    margin: auto;
+    margin-top: 12px;
+    text-align: center;
+    align-content: center;
+    width: 42%;
+}
+

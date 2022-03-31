@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+ 
+</div>
+<div class="startmenu">
+<div class="regnewpass">
+    <li class="nav-item">
+        <a class="nav-link" asp-area="" asp-controller="RegisterSession" asp-action="Index"><span style="font-size: 100px" class="material-icons">
+add
+</span><p>New workout</p></a>
+    </li>
+</div>
+
+<div class="statistic">
+    <li class="nav-item">
+        <a class="nav-link" asp-area="" asp-controller="SummaryStatistics" asp-action="Summary"><span style="font-size: 100px" class="material-icons">
+leaderboard
+</span><p>Statistic</p></a>
+    </li>
+</div>
+
+<div class="latestpass">
+    <li class="nav-item">
+        <a class="nav-link" asp-area="" asp-controller="RecentSessions" asp-action="Index"><span style="font-size: 100px" class="material-icons" onclick="return false;">
+history
+</span><p>Latest workouts</p></a>
+    </li>
+
+</div>
+
+<div class="calender">
+    <li class="nav-item">
+        <a class="nav-link" asp-area="" asp-controller="Calendar" asp-action="Calendar"><span style="font-size: 100px;text-decoration:none" class="material-icons" onclick="return false;">
+calendar_month
+</span><p>Calender</p></a>
+    </li>
+</div>
+
+
+
+</div>
